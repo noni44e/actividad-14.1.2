@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(elemento)}&media_type=image`)
         .then(response => response.json())
         .then(data =>{
+            document.getElementById("spinner").style.display = "none";
             contenedor.innerHTML= ""; 
 
             const item  = data.collection.items;
