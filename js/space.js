@@ -6,11 +6,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     buscar.addEventListener('click', ()=>{
         const elemento = input.value.trim();
         if (elemento === '')return;
+        document.getElementById("spinner").style.opacity = 100;
         document.getElementById("spinner").style.display = "block";
         fetch(`https://images-api.nasa.gov/search?q=${encodeURIComponent(elemento)}&media_type=image`)
         .then(response => response.json())
         .then(data =>{
             document.getElementById("spinner").style.display = "none";
+            document.getElementById("spinner").style.opacity = 0;
             contenedor.innerHTML= ""; 
 
             const item  = data.collection.items;
